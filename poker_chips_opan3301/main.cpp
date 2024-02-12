@@ -6,16 +6,16 @@
 using namespace std;
 vector <int> results;
 
-const int buffer = 4;
+const int buffer = 5;
 int buffer1, buffer2, buffer3, buffer4, roll1, roll2, roll3, roll4, roll5, sales;
 
 void run_day();
 int run_sim();
-double CalcAverage(vector<int> nums);
+float CalcAverage(vector<int> nums);
 
 int main() {
     int i;
-    for (i = 0; i < 10000; i++){
+    for (i = 0; i < 1000; i++){
         results.push_back(run_sim());
     }
     cout << "sim ran " << i << " times" << endl;
@@ -27,7 +27,7 @@ int main() {
     cout << "Average Value: " << CalcAverage(results) << endl;
 }
 
-double CalcAverage(vector<int> nums) {
+float CalcAverage(vector<int> nums) {
     if (nums.empty()) {
         return 0;
     }
@@ -56,7 +56,7 @@ void run_day(){
     mt19937 gen(rd()); // Seed the generator
 
     // Define the distribution for integers between 1 and 6 (inclusive)
-    uniform_int_distribution<> dis(3, 4);
+    uniform_int_distribution<> dis(1, 6);
 
     // generate rolls
     roll1 = dis(gen);
